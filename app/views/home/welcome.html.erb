@@ -1,0 +1,14 @@
+<p>welcome to namecard...</p>
+
+<%= form_tag members_path, :method => 'get' do %>
+
+<div style="color:darkGray; font-size:30;  text-align:center; 	padding-top:200px;">
+	<h1>
+		email:
+		<%= text_field_tag :email, params[:email], :size=>"30",:html => {:style => '"font-size:30;"'}%>
+	</h1>
+	<h1>
+		<%= submit_tag "Search", :name => nil  %>
+	</h1>
+</div>
+<% end %>

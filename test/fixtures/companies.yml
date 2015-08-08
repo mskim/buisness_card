@@ -1,0 +1,29 @@
+# == Schema Information
+#
+# Table name: companies
+#
+#  id         :integer          not null, primary key
+#  name       :string
+#  contact    :string
+#  email      :string
+#  variables  :text
+#  printer_id :integer
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  contact: MyString
+  email: MyString
+  variables: MyText
+  printer_id: 1
+
+two:
+  name: MyString
+  contact: MyString
+  email: MyString
+  variables: MyText
+  printer_id: 1
