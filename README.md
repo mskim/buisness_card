@@ -41,7 +41,19 @@ Each compnay folder has
 	order is created and email is sent to printer
 	step and repeated card is created for the memeber, if needed
 	printer take pdf files from his Dropbox folder and prints them.
-	
+
+
+# TODO
+2015 8 8
+	- return to welcome page after order show
+	- render pdf
+		member.generate_pdf
+	- render jpg, page1, page2
+		move pdf to Dropbox folder
+	- step&repeat
+	- show and edit
+
+
 ## Tables
 Agent
 	name

@@ -30,11 +30,13 @@ class Member < ActiveRecord::Base
   end
   
   def preview_page_1
-    ""
+    "/#{company_id}/#{name}_1.jpg"
+    # "/#{company_id}/1.jpg"
   end
   
   def preview_page_2
-    ""
+    "/#{company_id}/#{name}_2.jpg"
+    # "/#{company_id}/2.jpg"
   end
   
   
@@ -52,9 +54,12 @@ class Member < ActiveRecord::Base
   end
   
   def generate_pdf
-    template_file = File.open("#{layout_erb_path}", 'r').read
-    erb = ERB.new(template_file)
-    layout = erb.result(binding)
+    template_file   = File.open("#{layout_erb_path}", 'r').read
+    @name           = name
+    @email          = email
+    @variables_hash = variables
+    erb     = ERB.new(template_file)
+    layout  = erb.result(binding)
     # can I send the file direct to rjob instead of writing to file first?
     File.open(member_template_path, 'w'){|f| f.write layout}
     system("rjob #{member_template_path} #{member_pdf_path}")
