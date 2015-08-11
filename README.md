@@ -1,4 +1,4 @@
-# BusinessCard(www.namecard.me)
+# BusinessCard(www.namecard.name)
 
 BusinessCard is a Rails App for managing and creating business cards for printers. We are setuping an web site for printers to create edit and take print orders from their customers.
 Our customers are printers, usually ones with digital printers.
