@@ -10,24 +10,21 @@ PageScript uses Cocoa framework, using MacRuby,(now Rubymotion)
 PageScript can eval templates created in Ruby Code and turn them into Objects that can generate NSView and PDF, taking full advantage of Mac graphics power, such as OTF fonts, and color profile.
 
 ## How it works
-For each printer, we set up Dropbox to sync resources from and to the printers. 
+For each printer, we set up Dropbox to sync resources from and to the printers. Each printer's folder is created in Server's Dropbox folder with printers email. Each printer's client company folder is created under printers folder
 
-Each printer's folder is created in Server's Dropbox folder with printers email
-Each printer's client company folder is created under printers folder
 Each compnay folder has 
-	1. data.csv
-		member data
-	2. layout.erb.rb
-		pgscript layout with variable elements
-	3. /images
-		images such as logo, background images are stored here.
-	4. /pdf
-		generated namecard are stored here
-		step and repeated for A3 pdf are stored here
-	5. /qrcode
-		generated qrcode is stored here
-	6. /pictures
-		member pictures are stored here
+
+	1. data.csv: member data
+		
+	2. layout.erb.rb: pgscript layout with variable elements
+	
+	3. /images: images such as logo, background images are stored here.
+
+	4. /pdf: generated namecard are stored here, step and repeated for A3 pdf are stored here
+	
+	5. /qrcode: generated qrcode is stored here
+	
+	6. /pictures: member pictures are stored here
 		
 ### Members are parsed from data.csv and store in member db
 ### Member cards are created
@@ -40,7 +37,7 @@ Each compnay folder has
 1. member orders print 
 1. order is created and email is sent to printer
 1. step and repeated card is created for the memeber, if needed
-1. pdf and files and step and repeated cardfrom are dropped to printer's Dropbox.
+1. pdf and files and step and repeated card are dropped to printer's Dropbox.
 
 
 # TODO
@@ -53,12 +50,12 @@ Each compnay folder has
 
 
 2015 8 11
-	- deplay to damo server
+	- deploy to demo server
 	
 2015 8 10
 	- edit member
 		fix, strong parameter with serialize Hash with unknown keys
-		fix, view code for variables with field_for
+		fix, view code for variables with field_for, so we can input variables dynamically from excel sheet. 
 		
 2015 8 8
 	- return to welcome page after order show
