@@ -66,62 +66,65 @@ Each compnay folder has
 		
 	
 ## Tables
-Agent
-	name
-	email
-	cell
-	
-Printer (Printer)
-	name
-	email
-	cell
-	
-	belongs_to :agent
-	has_many :companies
-	has_many :orders
 
-Company
-	belongs_to :printer
-	contact
-	email
-	company_info
+### Agent
+- name
+- email
+- cell
 	
-Member
-	name
-	email
-	title
-	division
-	cell
-	member_info
-	belongs_to :company
+### Printer (Printer)
+- name
+- email
+- cell
+	
+- belongs_to :agent
+- has_many :companies
+- has_many :orders
 
-Order
-	printer
-	member
-	unit_ordered
-	delivery_method
+### Company
+- belongs_to :printer
+- contact
+- email
+- company_info
+	
+### Member
+- name
+- email
+- title
+- division
+- cell
+- member_info
+- belongs_to :company
 
-	belongs_to :printer
+### Order
+- member_id
+- unit_ordered
+- delivery_method
+- belongs_to :printer
 
 
 ## Role
-Admin, 
-	can do everything
-Agent, 
-	agents are the sales people who have recruited printers
-	can create new printer
-Printer, 
-	can create new company
-	can create new member
-Member
-	can edit his own data
-	can order his card
+
+### Admin, 
+- can do everything
+
+### Agent, 
+- agents are the sales people who have recruited printers
+- can create new printer
+
+### Printer, 
+- can create new company
+- can create new member
+
+### Member
+- can edit his own data
+- can order his card
 	
 ## Welcome Page
-	- login, for admin, agent, printers
-	- sign-up
-	
-	email input field
+
+- login, for admin, agent, printers
+- sign-up
+- email input field
 
 ## Member show page
 ## Member edit page
