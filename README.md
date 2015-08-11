@@ -7,7 +7,7 @@ Printers customers are small to medium sized companies.
 Using pgscript and Dropbox
 Instead of using page layout application, such as InDesing or Quark, we use PageScript to create business card templates and created pdf with variable data. PageScript is a Ruby DSL for page layout.
 PageScript uses Cocoa framework, using MacRuby,(now Rubymotion)
-PageScript can eval templates created in Ruby Code and turn them into Objects that can generate NSView and PDF, taking full advantage of Mac graphics power.
+PageScript can eval templates created in Ruby Code and turn them into Objects that can generate NSView and PDF, taking full advantage of Mac graphics power, such as OTF fonts, and color profile.
 
 ## How it works
 For each printer, we set up Dropbox to sync resources from and to the printers. 
@@ -37,23 +37,37 @@ Each compnay folder has
 ### When member data is updated, data.csv is updated with latest data from server db.
 
 ### ordering print job
-	member orders print 
-	order is created and email is sent to printer
-	step and repeated card is created for the memeber, if needed
-	printer take pdf files from his Dropbox folder and prints them.
+1. member orders print 
+1. order is created and email is sent to printer
+1. step and repeated card is created for the memeber, if needed
+1. pdf and files and step and repeated cardfrom are dropped to printer's Dropbox.
 
 
 # TODO
+- space_removed_name, name_with_no_space
+- take care of duplicate named members name(a), name(b)
+- step&repeat
+- qrcode
+- undopdf, extract images from current pdf namecard
+	- convert pdf to pgscript if possible
+
+
+2015 8 11
+	- deplay to damo server
+	
+2015 8 10
+	- edit member
+		fix, strong parameter with serialize Hash with unknown keys
+		fix, view code for variables with field_for
+		
 2015 8 8
 	- return to welcome page after order show
 	- render pdf
 		member.generate_pdf
 	- render jpg, page1, page2
-		move pdf to Dropbox folder
-	- step&repeat
-	- show and edit
-
-
+		move jpg to public folder
+		
+	
 ## Tables
 Agent
 	name
@@ -97,7 +111,7 @@ Order
 Admin, 
 	can do everything
 Agent, 
-	agents are the sales people who recited printers
+	agents are the sales people who have recruited printers
 	can create new printer
 Printer, 
 	can create new company

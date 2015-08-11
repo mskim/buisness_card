@@ -1,24 +1,10 @@
-<p id="notice"><%= notice %></p>
+<div style="color:darkGray; font-size:30;  text-align:center; 	padding-top:50px;">
+	<p><img border="1" width="<%= @width %>" height="<%= @height %>" float="right" src="<%= @preview_page_1 %>"></img></p>
+	<p><img border="1" width="<%= @width %>" height="<%= @height %>" float="right" src="<%= @preview_page_2 %>"></img></p>
+	
+	<%= link_to 'Order Print', order_member_path(@member) %> |
+	<%= link_to 'Edit', edit_member_path(@member) %> |
+	<%= link_to 'Cancel', members_path %> 
+	
+</div>
 
-<p>
-  <strong>Name:</strong>
-  <%= @member.name %>
-</p>
-
-<p>
-  <strong>Email:</strong>
-  <%= @member.email %>
-</p>
-
-<p>
-  <strong>Variables:</strong>
-  <%= @member.variables %>
-</p>
-
-<p>
-  <strong>Company:</strong>
-  <%= @member.company_id %>
-</p>
-
-<%= link_to 'Edit', edit_member_path(@member) %> |
-<%= link_to 'Back', members_path %>

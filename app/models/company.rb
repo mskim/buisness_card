@@ -21,12 +21,17 @@ class Company < ActiveRecord::Base
     "#{Rails.root}/public/#{id}"
   end
   
+  def company_data_path
+    "#{Rails.root}/public/#{id}/data"
+  end
+  
   def company_dropbox_path
     printer.printer_dropbox_path + "/#{name}"
   end
   
   def setup
     system("mkdir -p #{company_path}") unless File.exist?(company_path)
+    system("mkdir -p #{company_data_path}") unless File.exist?(company_data_path)
     system("mkdir -p #{company_dropbox_path}") unless File.exist?(company_dropbox_path)
   end
   

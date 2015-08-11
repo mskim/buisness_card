@@ -24,6 +24,8 @@ class MembersController < ApplicationController
   # GET /members/1
   # GET /members/1.json
   def show
+    @preview_page_1=@member.preview_page_1
+    @preview_page_2=@member.preview_page_2
   end
 
   # GET /members/new
@@ -41,7 +43,7 @@ class MembersController < ApplicationController
     @member = Member.new(member_params)
 
     respond_to do |format|
-      if @member.save
+      if @member.save        
         format.html { redirect_to @member, notice: 'Member was successfully created.' }
         format.json { render :show, status: :created, location: @member }
       else
@@ -54,8 +56,10 @@ class MembersController < ApplicationController
   # PATCH/PUT /members/1
   # PATCH/PUT /members/1.json
   def update
+    # expire_page :action => :show
     respond_to do |format|
       if @member.update(member_params)
+        @member.generate_pdf
         format.html { redirect_to @member, notice: 'Member was successfully updated.' }
         format.json { render :show, status: :ok, location: @member }
       else
@@ -90,6 +94,9 @@ class MembersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def member_params
-      params.require(:member).permit(:name, :email, :variables, :company_id)
+      # params.require(:member).permit(:name, :email, :variables, :company_id)
+      params.require(:member).permit(:name, :email, :company_id, variables: params[:member][:variables].try(:keys))
     end
+    
+    
 end
