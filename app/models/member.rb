@@ -56,7 +56,7 @@ class Member < ActiveRecord::Base
   end
   
   def company_preview_path
-    "/#{company_path}/preview"
+    "#{company_path}/preview"
   end
   
   def member_preview1_path
@@ -68,13 +68,11 @@ class Member < ActiveRecord::Base
   end
   
   def preview_page_1
-    "/#{company_preview_path}/#{name}_1.jpg"
-    # "/#{company_id}/1.jpg"
+    "/#{company_id}/preview/#{name}_1.jpg"
   end
   
   def preview_page_2
-    "/#{company_preview_path}/#{name}_2.jpg"
-    # "/#{company_id}/2.jpg"
+    "/#{company_id}/preview/#{name}_2.jpg"
   end
   
   def setup
