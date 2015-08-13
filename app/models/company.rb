@@ -25,6 +25,18 @@ class Company < ActiveRecord::Base
     "#{Rails.root}/public/#{id}/data"
   end
   
+  def company_preview_path
+    "#{Rails.root}/public/#{id}/preview"
+  end
+  
+  def company_dropbox_qrcode_path 
+    company_dropbox_path + "/images/qrcode"
+  end
+    
+  def company_dropbox_picture_path
+    company_dropbox_path + "/images/picture"
+  end
+  
   def company_dropbox_path
     printer.printer_dropbox_path + "/#{name}"
   end
@@ -32,7 +44,24 @@ class Company < ActiveRecord::Base
   def setup
     system("mkdir -p #{company_path}") unless File.exist?(company_path)
     system("mkdir -p #{company_data_path}") unless File.exist?(company_data_path)
+    system("mkdir -p #{company_preview_path}") unless File.exist?(company_preview_path)
     system("mkdir -p #{company_dropbox_path}") unless File.exist?(company_dropbox_path)
+    system("mkdir -p #{company_dropbox_qrcode_path}") unless File.exist?(company_dropbox_qrcode_path)
+    system("mkdir -p #{company_dropbox_picture_path}") unless File.exist?(company_dropbox_picture_path)
+  end
+  
+  def parse_company_info
+    company_info_path = company_path + "/company_info.yml"
+    puts "company_info_path:#{company_info_path}"
+    if File.exists?(company_info_path)
+      h= YAML::load_file(company_info_path) 
+      puts "company_info.class:#{company_info.class}"
+      puts "h.class:#{h.class}"
+      puts "h:#{h}"
+      company_info = h
+    else
+      puts "company_info.yml does not exist!!"
+    end
   end
   
   def parse_members
@@ -65,6 +94,12 @@ class Company < ActiveRecord::Base
   def generate_member_pdf
     members.each do |member|
       member.generate_pdf
+    end
+  end
+  
+  def generate_member_qrcode
+    members.each do |member|
+      member.generate_qrcode
     end
   end
 end

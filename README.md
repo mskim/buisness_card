@@ -1,15 +1,31 @@
 # BusinessCard(www.namecard.name)
 
-BusinessCard is a Rails App for managing and creating business cards for printers. We are setuping an web site for printers to create edit and take print orders from their customers.
+BusinessCard is a Rails App for managing and creating business cards for printers. We are setting up an web site for printers to create edit and take print orders from their customers.
 Our customers are printers, usually ones with digital printers.
 Printers customers are small to medium sized companies.
+Members information is entered in batch mode with csv file.
+csv file can be configured with flexible input elements. multiple lanugage items, such as en_name, ch_name, kr_name can be suppoerted for multiple languge business_card
 
+Members can edit their own business card at www.namecard.name, by entering their email.
+
+## qrcode generating
+qrcode are generated for each member in vcard format, making it possible to automatically insert each member information to smart phone address book.  
+
+## multiple language business card
+
+generating various combinations of different language card is possible.
+
+1. English front and Chinese back 
+1. Chinese front and  English back 
+1. English front and Japanese back
+1. Korean front and Chinese back 
+
+## How it works
 Using pgscript and Dropbox
 Instead of using page layout application, such as InDesing or Quark, we use PageScript to create business card templates and created pdf with variable data. PageScript is a Ruby DSL for page layout.
 PageScript uses Cocoa framework, using MacRuby,(now Rubymotion)
-PageScript can eval templates created in Ruby Code and turn them into Objects that can generate NSView and PDF, taking full advantage of Mac graphics power, such as OTF fonts, and color profile.
+PageScript can eval templates created in Ruby Code and turn them into Objects that can generate NSView and PDF, taking full advantage of Mac graphics power, such as PDF engine, OTF fonts, and color profile.
 
-## How it works
 For each printer, we set up Dropbox to sync resources from and to the printers. Each printer's folder is created in Server's Dropbox folder with printers email. Each printer's client company folder is created under printers folder
 
 Each compnay folder has 
@@ -38,108 +54,5 @@ Each compnay folder has
 1. order is created and email is sent to printer
 1. step and repeated card is created for the memeber, if needed
 1. pdf and files and step and repeated card are dropped to printer's Dropbox.
-
-
-# TODO
-- space_removed_name, name_with_no_space
-- take care of duplicate named members name(a), name(b)
-- step&repeat
-- qrcode
-- undopdf, extract images from current pdf namecard
-	- convert pdf to pgscript if possible
-
-
-2015 8 11
-	- deploy to demo server
-	
-2015 8 10
-	- edit member
-		fix, strong parameter with serialize Hash with unknown keys
-		fix, view code for variables with field_for, so we can input variables dynamically from excel sheet. 
-		
-2015 8 8
-	- return to welcome page after order show
-	- render pdf
-		member.generate_pdf
-	- render jpg, page1, page2
-		move jpg to public folder
-		
-	
-## Tables
-
-### Agent
-- name
-- email
-- cell
-	
-### Printer (Printer)
-- name
-- email
-- cell
-	
-- belongs_to :agent
-- has_many :companies
-- has_many :orders
-
-### Company
-- belongs_to :printer
-- contact
-- email
-- company_info
-	
-### Member
-- name
-- email
-- title
-- division
-- cell
-- member_info
-- belongs_to :company
-
-### Order
-- member_id
-- unit_ordered
-- delivery_method
-- belongs_to :printer
-
-
-## Role
-
-### Admin, 
-- can do everything
-
-### Agent, 
-- agents are the sales people who have recruited printers
-- can create new printer
-
-### Printer, 
-- can create new company
-- can create new member
-
-### Member
-- can edit his own data
-- can order his card
-	
-## Welcome Page
-
-- login, for admin, agent, printers
-- sign-up
-- email input field
-
-## Member show page
-## Member edit page
-
-## Member order page
-
-## About Page
-
-## ContactUs Nearest Printers Page
-
-
-
-
-
-
-
 
 
