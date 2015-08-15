@@ -1,7 +1,7 @@
 
 # this goes at top left
-logo = RLayout::Image.new(nil, tag: "logo", local_image: "1.pdf", width: 200, height: 50)
-logo2 = RLayout::Image.new(nil, tag: "logo2", local_image: "2.jpg", width: 200, height: 50)
+logo 	= RLayout::Image.new(nil, tag: "logo", local_image: "1.pdf", width: 200, height: 50)
+qrcode 	= RLayout::Image.new(nil, tag: "qrcode", local_image: "qrcode/허영자.png", width: 200, height: 200)
 # This goes somewhere in the middle
 personal = RLayout::Container.new(nil, tag: "personal", width: 150, height: 60) do
   text(tag: "name", text_string: "허영자", text_size: 12)
@@ -33,12 +33,20 @@ front_page = RLayout::Page.new(nil, margin: 10, paper_size: 'NAMECARD', grid_bas
   place(company)
 end
 
+personal2 = RLayout::Container.new(nil, tag: "personal2", width: 150, height: 60) do
+  text(tag: "name", text_string: "en_name", text_size: 12)
+  text(tag: "title", text_string: "Vice-President", text_size: 12)
+  text(tag: "email", text_string: "yjhuh@kyungnam_food.com", text_size: 12)
+  text(tag: "cell", text_string: "011-355-1132", text_size: 12)
+  relayout!
+end
+
 back_page = RLayout::Page.new(nil, margin: 10, paper_size: 'NAMECARD', grid_base: "6x6", gutter: 20, v_gutter: 5) do
-  container(tag: "logo2", grid_frame: [0,0,2,2], layout_expand: nil)
-  # container(tag: "personal", grid_frame: [2,0,4,3], layout_expand: nil)
+  container(tag: "qrcode", grid_frame: [2,1,2,4], layout_expand: nil)
+  #container(tag: "personal2", grid_frame: [2,0,4,3], layout_expand: nil)
   # container(tag: "company", grid_frame: [1,4,5,2], layout_expand: nil)
-  place(logo2)
-  # place(personal)
+  place(qrcode)
+  #place(personal2)
   # place(company)
 end
 

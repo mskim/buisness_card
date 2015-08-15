@@ -16,6 +16,7 @@
 class Company < ActiveRecord::Base
   belongs_to :printer
   serialize :variables, Hash
+  has_many :members
   
   def company_path
     "#{Rails.root}/public/#{id}"

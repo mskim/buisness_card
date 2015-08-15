@@ -5,7 +5,11 @@
 - qrcode
 - undopdf, extract images from current pdf namecard
 	- convert pdf to pgscript if possible
-
+	
+2015 8 14
+	- change Printer to User and use Devise
+	- 
+	
 2015 8 13
 	- change input field size for edit
 	- vcard qrcode generation

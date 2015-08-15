@@ -107,9 +107,11 @@ class Member < ActiveRecord::Base
     # end
     if variables["title"] && variables["division"]
       if variables["title"] !="" && variables["division"] !=""
+        puts "has title and division"
         @text+="TITLE:#{variables["title"]}/#{variables["division"]}\n" 
       else
-        @text+="TITLE:#{variables["title"]}n" 
+        puts "title only"
+        @text+="TITLE:#{variables["title"]}\n" 
       end
     end
     # @text+="PHOTO;JPG:#{member_site_url}"
@@ -121,7 +123,7 @@ class Member < ActiveRecord::Base
     end
     @text+="TEL;WORK;CELL:#{variables["cell"]}\n" if variables["cell"]
     # @text+="ADR:#{company_info[:street]};#{company_info[:city]};#{company_info[:country]}\n"
-    @text+="EMAIL:#{variables["email"]}\n"
+    @text+="EMAIL:#{email}\n"
     @text+="REV:20080424T195243Z\n"
     @text+="END:VCARD"
     @text
