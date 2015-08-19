@@ -4,8 +4,8 @@ logo 	= RLayout::Image.new(nil, tag: "logo", local_image: "1.pdf", image_fit_typ
 qrcode 	= RLayout::Image.new(nil, tag: "qrcode", local_image: "qrcode/김민수.png", width: 200, height: 200)
 # This goes somewhere in the middle
 personal = RLayout::Container.new(nil, tag: "personal", width: 150, height: 60) do
-  text(tag: "name", text_string: "김민수", text_size: 12)
-  text(tag: "title", text_string: "대표", text_size: 12)
+  text(tag: "name", text_string: "김민수", text_size: 12, font: "smGothicP-W70")
+  text(tag: "title", text_string: "대표", text_size: 12, font: "smGothicP-W35")
   text(tag: "email", text_string: "mskimsid@gmail.com", text_size: 12)
   text(tag: "cell", text_string: "010-7468-8222", text_size: 12)
   relayout!

@@ -33,9 +33,6 @@ class Member < ActiveRecord::Base
     company.company_dropbox_path
   end
   
-  def member_dropbox_pdf_path
-    "#{company_dropbox_path}/#{name}.pdf"
-  end
   
   def member_template_path
     # "#{company_path}/laytout_#{name}.rb"
@@ -47,12 +44,16 @@ class Member < ActiveRecord::Base
     "#{company_dropbox_path}/layout.rb.erb"
   end
   
+  def member_dropbox_pdf_path
+    "#{company_dropbox_path}/pdf/#{name}.pdf"
+  end
+  
   def member_preview1_dropbox_path
-    "#{company_dropbox_path}/#{name}_1.jpg"
+    "#{company_dropbox_path}/pdf/#{name}_1.jpg"
   end
   
   def member_preview2_dropbox_path
-    "#{company_dropbox_path}/#{name}_2.jpg"
+    "#{company_dropbox_path}/pdf/#{name}_2.jpg"
   end
   
   def company_preview_path
@@ -110,7 +111,6 @@ class Member < ActiveRecord::Base
         puts "has title and division"
         @text+="TITLE:#{variables["title"]}/#{variables["division"]}\n" 
       else
-        puts "title only"
         @text+="TITLE:#{variables["title"]}\n" 
       end
     end

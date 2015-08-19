@@ -1,11 +1,11 @@
 
 # this goes at top left
-logo 	= RLayout::Image.new(nil, tag: "logo", local_image: "1.pdf", image_fit_type: 40)
+logo 	= RLayout::Image.new(nil, tag: "logo", local_image: "1.pdf", image_fit_type: 4)
 qrcode 	= RLayout::Image.new(nil, tag: "qrcode", local_image: "qrcode/<%= @name %>.png", width: 200, height: 200)
 # This goes somewhere in the middle
 personal = RLayout::Container.new(nil, tag: "personal", width: 150, height: 60) do
-  text(tag: "name", text_string: "<%= @name %>", text_size: 12)
-  text(tag: "title", text_string: "<%= @title %>", text_size: 12)
+  text(tag: "name", text_string: "<%= @name %>", text_size: 12, font: "smGothicP-W70")
+  text(tag: "title", text_string: "<%= @title %>", text_size: 12, font: "smMyungjoP-W30")
   text(tag: "email", text_string: "<%= @email %>", text_size: 12)
   text(tag: "cell", text_string: "<%= @cell %>", text_size: 12)
   relayout!
