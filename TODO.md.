@@ -2,13 +2,18 @@
 - space_removed_name, name_with_no_space
 - take care of duplicate named members name(a), name(b)
 - step&repeat
-- qrcode
 - undopdf, extract images from current pdf namecard
 	- convert pdf to pgscript if possible
 	
-2015 8 14
+- edit layout.rb.erb on web, using codemirror
+- programatically send Dropbox sharing to new registered user
+
+
+2015 8 19
 	- change Printer to User and use Devise
-	- 
+	- strong parameter for serialize Hash
+	- fix links in view 
+	- setup copy_company_template
 	
 2015 8 13
 	- change input field size for edit

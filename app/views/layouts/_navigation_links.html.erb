@@ -1,6 +1,6 @@
 <%# add navigation links to this file %>
 <% if user_signed_in? %>
-  <li><%= link_to 'Companies', companies_path %></li>
+  <li><%= link_to 'Companies', user_path(current_user) %></li>
 <% end %>
 
 

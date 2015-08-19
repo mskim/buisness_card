@@ -42,6 +42,10 @@ class Company < ActiveRecord::Base
     user.user_dropbox_path + "/#{name}"
   end
   
+  def template_path
+    "#{Rails.root}/public/company_template"    
+  end
+  
   def setup
     system("mkdir -p #{company_path}") unless File.exist?(company_path)
     system("mkdir -p #{company_data_path}") unless File.exist?(company_data_path)
@@ -49,6 +53,11 @@ class Company < ActiveRecord::Base
     system("mkdir -p #{company_dropbox_path}") unless File.exist?(company_dropbox_path)
     system("mkdir -p #{company_dropbox_qrcode_path}") unless File.exist?(company_dropbox_qrcode_path)
     system("mkdir -p #{company_dropbox_picture_path}") unless File.exist?(company_dropbox_picture_path)
+    copy_company_template
+  end
+  
+  def copy_company_template
+    system("cp -r #{template_path}/ #{company_dropbox_path}/")
   end
   
   def parse_company_info

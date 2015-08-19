@@ -23,14 +23,29 @@
     <%= f.label :email %><br>
     <%= f.text_field :email %>
   </div>
-  <div class="field">
-    <%= f.label :variables %><br>
-    <%= f.text_area :variables %>
+
+	<%= f.fields_for :variables do |v| %>
+	  <% @company.variables.each do |key, value| %>
+		  <div class="field">
+		    <%= v.label key %><br />	
+		    <%= v.text_field key, :value =>@company.variables[key] %>
+		  </div>
+		 <% end %>
+	<% end %>
+
+
+  <% if current_user %>
+  <div class="field" style="display:none">
+    <%= f.label :user_id %><br>
+    <%= f.number_field :user_id, :value=>current_user.id %>
   </div>
+  <% else %>
   <div class="field">
     <%= f.label :user_id %><br>
     <%= f.number_field :user_id %>
   </div>
+
+  <% end %>
   <div class="actions">
     <%= f.submit %>
   </div>
