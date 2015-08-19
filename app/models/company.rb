@@ -7,16 +7,20 @@
 #  contact    :string
 #  email      :string
 #  variables  :text
-#  printer_id :integer
+#  user_id :integer
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
 
 
 class Company < ActiveRecord::Base
-  belongs_to :printer
+  belongs_to :user
   serialize :variables, Hash
   has_many :members
+  
+  def printer
+    user
+  end
   
   def company_path
     "#{Rails.root}/public/#{id}"

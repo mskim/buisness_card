@@ -5,7 +5,7 @@ class CreateCompanies < ActiveRecord::Migration
       t.string :contact
       t.string :email
       t.text :variables
-      t.integer :printer_id
+      t.integer :user_id
 
       t.timestamps null: false
     end

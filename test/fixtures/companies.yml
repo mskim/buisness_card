@@ -7,7 +7,7 @@
 #  contact    :string
 #  email      :string
 #  variables  :text
-#  printer_id :integer
+#  user_id :integer
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
@@ -19,11 +19,11 @@ one:
   contact: MyString
   email: MyString
   variables: MyText
-  printer_id: 1
+  user_id: 1
 
 two:
   name: MyString
   contact: MyString
   email: MyString
   variables: MyText
-  printer_id: 1
+  user_id: 1

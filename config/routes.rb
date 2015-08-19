@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
+  devise_for :users
+  resources :users
   resources :orders
   resources :members
   resources :companies
-  resources :printers
   resources :orders
-  resources :agents
   resources :companies
   resources :members
   resources :companies
