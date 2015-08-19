@@ -13,15 +13,6 @@
 
 ActiveRecord::Schema.define(version: 20150819003053) do
 
-  create_table "agents", force: :cascade do |t|
-    t.string   "name"
-    t.string   "email"
-    t.string   "cell"
-    t.string   "bank_info"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "companies", force: :cascade do |t|
     t.string   "name"
     t.string   "contact"
@@ -46,16 +37,6 @@ ActiveRecord::Schema.define(version: 20150819003053) do
     t.integer  "quantity"
     t.string   "status"
     t.string   "delivery"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "printers", force: :cascade do |t|
-    t.string   "name"
-    t.string   "contact"
-    t.string   "email"
-    t.string   "cell"
-    t.integer  "agent_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

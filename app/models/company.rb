@@ -17,11 +17,7 @@ class Company < ActiveRecord::Base
   belongs_to :user
   serialize :variables, Hash
   has_many :members
-  
-  def printer
-    user
-  end
-  
+    
   def company_path
     "#{Rails.root}/public/#{id}"
   end
@@ -43,7 +39,7 @@ class Company < ActiveRecord::Base
   end
   
   def company_dropbox_path
-    printer.printer_dropbox_path + "/#{name}"
+    user.user_dropbox_path + "/#{name}"
   end
   
   def setup

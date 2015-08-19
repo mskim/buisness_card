@@ -4,10 +4,8 @@ Rails.application.routes.draw do
   resources :orders
   resources :members
   resources :companies
-  resources :orders
-  resources :companies
   resources :members
-  resources :companies
+
   get 'home/welcome'
 
   get 'home/contact'

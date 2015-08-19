@@ -6,13 +6,12 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
 
-  def printer_dropbox_path
-   user_path = File.expand_path("~")
-   "#{user_path}/Dropbox/#{email}"
+  def user_dropbox_path
+   "#{File.expand_path("~")}/Dropbox/#{email}"
   end
 
   def setup
-   system("mkdir -p #{printer_dropbox_path}") unless File.exist?(printer_dropbox_path)
+   system("mkdir -p #{user_dropbox_path}") unless File.exist?(user_dropbox_path)
   end
   
 end
