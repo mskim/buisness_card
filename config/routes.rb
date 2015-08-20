@@ -2,9 +2,12 @@ Rails.application.routes.draw do
   devise_for :users
   resources :users
   resources :orders
-  resources :members
-  resources :companies
-  resources :members
+  resources :companies do
+    member do 
+      # get :download
+      get :parse_member_data
+    end
+  end
 
   get 'home/welcome'
 
@@ -13,8 +16,11 @@ Rails.application.routes.draw do
   resources :members do
     member do 
       get :order
-      # get :download_vcard
-      # get :sample_download
+      # get :generate_A4_step
+      # get :generate_A3_step
+      # get :download_pdf
+      # get :download_A4_step
+      # get :download_A3_step
     end
   end
   # The priority is based upon order of creation: first created -> highest priority.

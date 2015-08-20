@@ -2,18 +2,24 @@
 - space_removed_name, name_with_no_space
 - take care of duplicate named members name(a), name(b)
 - step&repeat
+	generate_A3_step, generate_A4_step
 - undopdf, extract images from current pdf namecard
 	- convert pdf to pgscript if possible
 	
 - edit layout.rb.erb on web, using codemirror
 - programatically send Dropbox sharing to new registered user
 
-
+2015 8 19
+	- migration add script:text to company
+	- 
 2015 8 19
 	- change Printer to User and use Devise
 	- strong parameter for serialize Hash
 	- fix links in view 
 	- setup copy_company_template
+		auto_generate data.csv 
+		with name1, name1@company_name.com
+	- add parse member
 	
 2015 8 13
 	- change input field size for edit

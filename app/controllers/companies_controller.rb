@@ -1,5 +1,5 @@
 class CompaniesController < ApplicationController
-  before_action :set_company, only: [:show, :edit, :update, :destroy]
+  before_action :set_company, only: [:show, :edit, :update, :destroy, :parse_member_data]
 
   # GET /companies
   # GET /companies.json
@@ -63,6 +63,11 @@ class CompaniesController < ApplicationController
     end
   end
 
+  def parse_member_data
+    @company.parse_members
+    redirect_to @company #and return
+  end
+  
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_company
