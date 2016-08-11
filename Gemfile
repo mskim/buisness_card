@@ -53,3 +53,4 @@ end
 gem 'devise'
 gem 'kaminari'
 gem 'bootstrap-sass'
+gem 'jquery-ace-rails'

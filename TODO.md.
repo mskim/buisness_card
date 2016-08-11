@@ -1,5 +1,5 @@
 # TODO
-- space_removed_name, name_with_no_space
+- parameterize
 - take care of duplicate named members name(a), name(b)
 - step&repeat
 	generate_A3_step, generate_A4_step

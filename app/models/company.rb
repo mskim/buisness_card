@@ -17,7 +17,8 @@ class Company < ActiveRecord::Base
   belongs_to :user
   serialize :variables, Hash
   has_many :members
-    
+  after_save :setup
+  
   def company_path
     "#{Rails.root}/public/#{id}"
   end

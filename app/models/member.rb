@@ -33,10 +33,9 @@ class Member < ActiveRecord::Base
     company.company_dropbox_path
   end
   
-  
-  def member_template_path
+  def member_script_path
     # "#{company_path}/laytout_#{name}.rb"
-    "#{company_path}/data/layout_#{id}.rb.erb"
+    "#{company_path}/data/layout_#{id}.rb"
   end
     
   def layout_company_erb_path
@@ -49,11 +48,11 @@ class Member < ActiveRecord::Base
   end
   
   def member_preview1_dropbox_path
-    "#{company_dropbox_path}/pdf/#{name}_1.jpg"
+    "#{company_dropbox_path}/pdf/#{name}_001.jpg"
   end
   
   def member_preview2_dropbox_path
-    "#{company_dropbox_path}/pdf/#{name}_2.jpg"
+    "#{company_dropbox_path}/pdf/#{name}_002.jpg"
   end
   
   def company_preview_path
@@ -143,7 +142,7 @@ class Member < ActiveRecord::Base
   end
   
   def generate_pdf
-    generate_qrcode if true  #if qrcode
+    # generate_qrcode if true  #if qrcode
     template_file   = File.open("#{layout_company_erb_path}", 'r').read
     @name           = name
     @email          = email
@@ -152,8 +151,8 @@ class Member < ActiveRecord::Base
     end
     erb = ERB.new(template_file)
     layout = erb.result(binding)
-    File.open(member_template_path, 'w'){|f| f.write layout}
-    system("/Applications/rjob.app/Contents/MacOS/rjob #{company_dropbox_path} #{member_template_path} #{member_dropbox_pdf_path} -jpg")
+    File.open(member_script_path, 'w'){|f| f.write layout}
+    system("/Applications/rjob.app/Contents/MacOS/rjob #{member_script_path} #{company_dropbox_path} #{member_dropbox_pdf_path} -jpg")
     system("mv #{member_preview1_dropbox_path} #{member_preview1_path}")
     system("mv #{member_preview2_dropbox_path} #{member_preview2_path}")
   end
