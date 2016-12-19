@@ -16,8 +16,7 @@
 
 one:
   name: MyString
-  contact: MyString
-  email: MyString
+  script: MyText
   variables: MyText
   user_id: 1
 

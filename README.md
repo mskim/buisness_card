@@ -1,15 +1,15 @@
 # BusinessCard(www.namecard.name)
 
-BusinessCard is a Rails App for managing and creating business cards for printers. We are setting up an web site for printers to create edit and take print orders from their customers.
-Our customers are printers, usually ones with digital printers.
+BusinessCard is a Rails app for managing and creating business cards for printers. BusinessCard app provides web site for printers to create edit and take print orders from their customers.
+BusinessCard customers are printers, usually ones with digital printers.
 Printers customers are small to medium sized companies.
 Members information is entered in batch mode with csv file.
 csv file can be configured with flexible input elements. multiple lanugage items, such as en_name, ch_name, kr_name can be suppoerted for multiple languge business_card
 
-Members can edit their own business card at www.namecard.name, by entering their email.
+Members can find their own card and edit their own business card at the site by entering their email.
 
 ## qrcode generating
-qrcode are generated for each member in vcard format, making it possible to automatically insert each member information to smart phone address book.  
+qrcode can be generated for each member in vcard format, making it possible to automatically insert each member information to smart phone address book.  
 
 ## multiple language business card
 

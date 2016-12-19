@@ -16,12 +16,8 @@
     <%= f.text_field :name %>
   </div>
   <div class="field">
-    <%= f.label :contact %><br>
-    <%= f.text_field :contact %>
-  </div>
-  <div class="field">
-    <%= f.label :email %><br>
-    <%= f.text_field :email %>
+    <%= f.label :script %><br>
+    <%= f.text_area :script, cols: 100, rows: 20 %>
   </div>
 
 	<%= f.fields_for :variables do |v| %>
@@ -50,3 +46,6 @@
     <%= f.submit %>
   </div>
 <% end %>
+
+
+

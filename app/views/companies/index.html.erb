@@ -6,8 +6,7 @@
   <thead>
     <tr>
       <th>Name</th>
-      <th>Contact</th>
-      <th>Email</th>
+      <th>Script</th>
       <th>Variables</th>
       <th>Printer</th>
       <th colspan="3"></th>
@@ -18,8 +17,7 @@
     <% @companies.each do |company| %>
       <tr>
         <td><%= company.name %></td>
-        <td><%= company.contact %></td>
-        <td><%= company.email %></td>
+        <td><%= company.script %></td>
         <td><%= company.variables %></td>
         <td><%= company.user_id %></td>
         <td><%= link_to 'Show', company %></td>

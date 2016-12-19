@@ -1,10 +1,9 @@
 <div style="color:darkGray; font-size:30;  text-align:center; 	padding-top:50px;">
 	<p><img border="1" width="<%= @width %>" height="<%= @height %>" float="right" src="<%= @preview_page_1 %>"></img></p>
 	<p><img border="1" width="<%= @width %>" height="<%= @height %>" float="right" src="<%= @preview_page_2 %>"></img></p>
-	
+
 	<%= link_to 'Order Print', order_member_path(@member) %> |
 	<%= link_to 'Edit', edit_member_path(@member) %> |
-	<%= link_to 'Cancel', members_path %> 
-	
-</div>
+	<%= link_to 'Cancel', members_path %>
 
+</div>

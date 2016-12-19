@@ -3,12 +3,25 @@
 - take care of duplicate named members name(a), name(b)
 - step&repeat
 	generate_A3_step, generate_A4_step
-- undopdf, extract images from current pdf namecard
-	- convert pdf to pgscript if possible
 	
-- edit layout.rb.erb on web, using codemirror
+- parse_pdf, parse_AI, parse_mlayout
+	- extract images from current pdf namecard
+	- convert pdf to pgscript
+	
+- edit layout.rb.erb on web, using ace-editor
 - programatically send Dropbox sharing to new registered user
+- login with github
+- login with Dropbox
 
+2016 8 11
+	- add script to company, remove contact, and email
+	- add ace-editor to edit script
+	- add high-voltage gem
+	- upload company logo
+	- add design library selection
+	- create new company with design 
+	- change design
+	
 2015 8 19
 	- migration add script:text to company
 	- 
